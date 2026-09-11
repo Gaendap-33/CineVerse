@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CineVerse 🎬</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #0b0b12;
+    color: white;
+}
+
+header {
+    background: linear-gradient(90deg, #14142b, #24103d);
+    padding: 25px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+}
+
+nav a:hover {
+    color: #c77dff;
+}
+
+.hero {
+    min-height: 430px;
+    padding: 100px 8%;
+    background: linear-gradient(90deg, #0b0b12 20%, transparent),
+                linear-gradient(135deg, #261447, #10101c);
+}
+
+.hero h1 {
+    font-size: 55px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    max-width: 600px;
+    color: #cccccc;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.button {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 13px 25px;
+    background: #8e44ad;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+}
+
+.button:hover {
+    background: #b565d9;
+    transform: scale(1.05);
+}
+
+section {
+    padding: 50px 8%;
+}
+
+section h2 {
+    font-size: 32px;
+    margin-bottom: 25px;
+}
+
+.search {
+    width: 100%;
+    max-width: 500px;
+    padding: 15px;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    margin-bottom: 30px;
+}
+
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+.movie-card {
+    background: #171722;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 0.3s;
+    border: 1px solid #29293b;
+}
+
+.movie-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px #00000080;
+}
+
+.poster {
+    height: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 55px;
+    background: linear-gradient(135deg, #402060, #141428);
+}
+
+.movie-info {
+    padding: 18px;
+}
+
+.movie-info h3 {
+    margin-bottom: 8px;
+}
+
+.movie-info p {
+    color: #aaa;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.rating {
+    color: #ffd166;
+}
+
+.genre {
+    display: inline-block;
+    background: #2a2040;
+    padding: 6px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    background: #07070c;
+    color: #888;
+}
+
+@media (max-width: 700px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav a {
+        margin: 8px;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">🎬 CineVerse</div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#movies">Movies</a>
+        <a href="#genres">Genres</a>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+    <h1>Welcome to CineVerse</h1>
+    <p>
+        Discover amazing movies, explore different genres,
+        and find your next favorite film all in one place.
+    </p>
+
+    <a href="#movies" class="button">Explore Movies 🍿</a>
+</section>
+
+<section id="movies">
+    <h2>🎥 Popular Movies</h2>
+
+    <input
+        type="text"
+        id="search"
+        class="search"
+        placeholder="🔍 Search for a movie..."
+        onkeyup="searchMovies()"
+    >
+
+    <div class="movie-grid" id="movieGrid">
+
+        <div class="movie-card">
+            <div class="poster">🚀</div>
+            <div class="movie-info">
+                <h3>Interstellar</h3>
+                <p>A journey through space, time and the unknown.</p>
+                <div class="rating">⭐ 8.7/10</div>
+                <span class="genre">Sci-Fi</span>
+            </div>
+        </div>
+
+        <div class="movie-card">
+            <div class="poster">🦸</div>
+            <div class="movie-info">
+                <h3>Avengers</h3>
+                <p>Heroes join together to protect the world.</p>
+                <div class="rating">⭐ 8.0/10</div>
+                <span class="genre">Action</span>
+            </div>
+        </div>
+
+        <div class="movie-card">
+            <div class="poster">🧙</div>
+            <div class="movie-info">
+                <h3>Harry Potter</h3>
+                <p>A young wizard discovers a magical world.</p>
+                <div class="rating">⭐ 8.6/10</div>
+                <span class="genre">Fantasy</span>
+            </div>
+        </div>
+
+        <div class="movie-card">
+            <div class="poster">🦁</div>
+            <div class="movie-info">
+                <h3>The Lion King</h3>
+                <p>A young lion learns about courage and responsibility.</p>
+                <div class="rating">⭐ 8.5/10</div>
+                <span class="genre">Animation</span>
+            </div>
+        </div>
+
+        <div class="movie-card">
+            <div class="poster">🕷️</div>
+            <div class="movie-info">
+                <h3>Spider-Man</h3>
+                <p>A superhero learns that great power brings responsibility.</p>
+                <div class="rating">⭐ 8.2/10</div>
+                <span class="genre">Action</span>
+            </div>
+        </div>
+
+        <div class="movie-card">
+            <div class="poster">🌊</div>
+            <div class="movie-info">
+                <h3>Moana</h3>
+                <p>A brave girl journeys across the ocean.</p>
+                <div class="rating">⭐ 7.6/10</div>
+                <span class="genre">Adventure</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section id="genres">
+    <h2>🎭 Explore Genres</h2>
+
+    <div class="movie-grid">
+
+        <div class="movie-card">
+            <div class="poster">💥</div>
+            <div class="movie-info">
+                <h3>Action</h3>
+                <p>Exciting adventures and unforgettable battles.</p>
+            </div>
+        </div>
+
+        <div class="movie-card">
+            <div class="poster">🚀</div>
+            <div class="movie-info">
+                <h3>Sci-Fi</h3>
+                <p>Explore technology, space and the future.</p>
+            </div>
+        </div>
+
+        <div class="movie-card">
+            <div class="poster">🧙‍♂️</div>
+            <div class="movie-info">
+                <h3>Fantasy</h3>
+                <p>Enter worlds filled with magic and imagination.</p>
+            </div>
+        </div>
+
+        <div class="movie-card">
+            <div class="poster">😂</div>
+            <div class="movie-info">
+                <h3>Comedy</h3>
+                <p>Relax and enjoy movies full of laughter.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    <p>🎬 CineVerse © 2026 | Made with HTML, CSS & JavaScript</p>
+</footer>
+
+<script>
+function searchMovies() {
+    let input = document.getElementById("search").value.toLowerCase();
+    let cards = document.querySelectorAll(".movie-card");
+
+    cards.forEach(function(card) {
+        let title = card.innerText.toLowerCase();
+
+        if (title.includes(input)) {
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
+    });
+}
+</script>
+
+</body>
+</html>
